@@ -1,26 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Librhes | Livros</title>
-</head>
-
-<body>
-    <h1>Livros</h1>
-
-    <ul id="bookList">
-        {% for book in object_list %}
-        <li>{{ book.title }}</li>
+{% extends "biblio/base.html" %} {% load static %} {% block content %}
+<div class="columns">
+  <div class="column is-8 is-offset-2">
+    {% comment %} Serchbar {% endcomment %}
+    <div class="searchbar">
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="text" placeholder="Pesquisar livro..." />
+          <span class="icon is-small is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="columns">
+  <div class="column is-8 is-offset-2">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Author</th>
+          <th>ISBN</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in book_list %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.isbn }}</td>
+        </tr>
         {% endfor %}
-    </ul>
-
-    <script>
-        const bookList = document.querySelector('#bookList')
-        console.log(bookList)
-    </script>
-</body>
-
-</html>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

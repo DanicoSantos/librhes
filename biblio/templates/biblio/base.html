@@ -4,16 +4,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Librhes</title>
+    <title>Librhes {% block title %}{% endblock title %}</title>
+    <script
+      src="https://kit.fontawesome.com/8a603ffa06.js" async="true"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
     <link rel="stylesheet" href="{% static 'biblio/css/style' %}" />
+    {% block extra_css %}{% endblock extra_css %}
   </head>
   <body>
     <header>
-      <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+      <nav
+        class="navbar is-info"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
@@ -49,7 +58,11 @@
       </nav>
     </header>
     <section class="section">
-      <div class="container"></div>
+      <div class="container">
+        {% block content %}{% endblock content %}
+      </div>
     </section>
+
+    {% block extra_js %}{% endblock extra_js %}
   </body>
 </html>
