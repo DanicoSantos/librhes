@@ -16,7 +16,7 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
-        return reverse("author-detail", args={str(self.id)})
+        return reverse("detalhe-do-autor", args={str(self.id)})
 
     def __str__(self):
         """String for representing the Model object"""
@@ -56,9 +56,9 @@ class Book(models.Model):
         """String for representing the Model object"""
         return self.title
 
-    # def get_absolute_url(self):
-    #     """Returns the url to access a detail record for the book"""
-    #     return reverse("livros", kwargs={str(self.id)})
+    def get_absolute_url(self):
+        """Returns the url to access a detail record for the book"""
+        return reverse("detalhe-do-livro", args={str(self.id)})
 
     def display_genre(self):
         """Create a string for the Genre. This is required to display genre in admin"""

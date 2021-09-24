@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Librhes {% block title %}{% endblock title %}</title>
     <script
-      src="https://kit.fontawesome.com/8a603ffa06.js" async="true"
+      src="https://kit.fontawesome.com/8a603ffa06.js"
+      async="true"
       crossorigin="anonymous"
     ></script>
     <link
@@ -25,7 +26,7 @@
       >
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="{% url 'index' %}">
               <span class="title has-text-white">Librhes</span>
             </a>
 
@@ -43,6 +44,10 @@
           </div>
 
           <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a href="" class="navbar-item"> Livros </a>
+              <a href="" class="navbar-item"> Autores </a>
+            </div>
             <div class="navbar-end">
               <div class="navbar-item">
                 <div class="buttons">
@@ -57,11 +62,7 @@
         </div>
       </nav>
     </header>
-    <section class="section">
-      <div class="container">
-        {% block content %}{% endblock content %}
-      </div>
-    </section>
+    <section class="section">{% block content %}{% endblock content %}</section>
 
     {% block extra_js %}{% endblock extra_js %}
   </body>
